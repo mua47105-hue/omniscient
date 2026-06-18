@@ -128,7 +128,9 @@ export function SupabaseManager() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: url.trim(), anonKey: anonKey.trim() }),
       });
-      const j = (await res.json()) as ApiResult<TestResult>;
+      const text = await res.text();
+      let j: ApiResult<TestResult>;
+      try { j = JSON.parse(text); } catch { j = { success: false, error: 'Server error — check if DATABASE_URL is configured' }; }
       if (j.success && j.data) {
         setTestResult(j.data);
         if (j.data.ok && j.data.tableExists) {
