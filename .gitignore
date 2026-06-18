@@ -1,0 +1,11 @@
+node_modules
+.next
+download
+upload
+skills
+tool-results
+agent-ctx
+*.log
+*.db
+*.db-journal
+.turbo
