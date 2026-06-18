@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 // Swaps Prisma provider based on DATABASE_URL.
 // If DATABASE_URL starts with "postgresql://", sets provider to "postgresql".
 // Otherwise keeps "sqlite" (for local dev).
